@@ -1,3 +1,7 @@
+#navbar {
+  background-color: #242424;
+}
+
 a.navbar-brand {
   width: 10%; 
   margin-left: 40px; 
@@ -5,20 +9,30 @@ a.navbar-brand {
   padding-right: 0; 
 }
 
+
 .navbar-brand {
   will-change: filter;
   transition: filter 300ms;
 }
+
 .navbar-brand:hover {
-  filter: drop-shadow(0 0 2em #2934ffaa);
-}
-.navbar-brand.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em #44c1ff);
 }
 
+.navbar-brand.react:hover {
+  filter: drop-shadow(0 0 2em #00c8ffaa);
+}
+
+.navbar-item:hover {
+  filter: drop-shadow(0 0 2em #44c1ff);
+}
+
+.navbar-item.react:hover {
+  filter: drop-shadow(0 0 2em #00c8ffaa);
+}
 img {
   width: 50%; 
-  border-radius: 50%; 
+  border-radius: 30%; 
 }
 
 a.nav-link {

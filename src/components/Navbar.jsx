@@ -3,7 +3,7 @@ import React from "react";
 export default function Navbar() {
   return (
     <div>
-      <nav id="navbar" className="navbar navbar-dark bg-dark navbar-expand-lg ">
+      <nav id="navbar" className="navbar navbar-dark navbar-expand-lg ">
         <a href="/" className="navbar-brand"><img src="/images/twitter-icon.jpeg" />
         </a>
         <button
@@ -14,7 +14,7 @@ export default function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarCollapse">
-          <ul className="navbar-nav ml-auto">
+          <ul className="navbar-nav ml-auto navbar-pills">
             <li className="navbar-item">
               <a href="/Search" className="nav-link">
                 Search 
