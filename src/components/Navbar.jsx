@@ -3,38 +3,26 @@ import React from "react";
 export default function Navbar() {
   return (
     <div>
-      <button className="btn btn-primary">Submit</button>
-      <nav class="navbar navbar-dark bg-dark navbar-expand-lg fixed-top">
-        <a href="#" class="navbar-brand">
-          My Website
+      <nav className="navbar navbar-dark bg-dark navbar-expand-lg ">
+        <a href="#" className="navbar-brand"><img src="/images/twitter-icon.jpeg" />
         </a>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           data-toggle="collapse"
           data-target="#navbarCollapse"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav ml-auto">
-            <li class="navbar-item">
-              <a href="#" class="nav-link">
-                Homepage
+        <div className="collapse navbar-collapse" id="navbarCollapse">
+          <ul className="navbar-nav ml-auto">
+            <li className="navbar-item">
+              <a href="#" className="nav-link">
+                Search 
               </a>
             </li>
-            <li class="navbar-item">
-              <a href="#" class="nav-link">
-                Blog
-              </a>
-            </li>
-            <li class="navbar-item">
-              <a href="#" class="nav-link">
-                About Me
-              </a>
-            </li>
-            <li class="navbar-item">
-              <a href="#" class="nav-link">
-                Contact
+            <li className="navbar-item">
+              <a href="#" className="nav-link">
+                Random Tweet
               </a>
             </li>
           </ul>
