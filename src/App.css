@@ -10,7 +10,7 @@
 a.navbar-brand {
   width: 10%; 
   margin-left: 10px;
-  margin-right: 039; 
+  margin-right: 0; 
   padding-right: 0; 
   display: flex;
   justify-content: center;
@@ -79,7 +79,7 @@ a.nav-link {
   padding-bottom: 80px; 
 }
 
-/* .flip-container {
+.flip-container {
   display: flex; 
   justify-content: space-evenly; 
   background-color: #242424;
@@ -91,10 +91,10 @@ a.nav-link {
   background-color: transparent;
   width: 400px;
   height: 400px;
-  perspective: 1000px; 
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
 
-
+/* This container is needed to position the front and back side */
 .flip-box-inner {
   position: relative;
   width: 100%;
@@ -104,25 +104,27 @@ a.nav-link {
   transform-style: preserve-3d;
 }
 
-
+/* Do an horizontal flip when you move the mouse over the flip box container */
 .flip-box:hover .flip-box-inner {
   transform: rotateY(180deg);
 }
 
-
+/* Position the front and back side */
 .flip-box-front, .flip-box-back {
   position: absolute;
   width: 100%;
   height: 100%;
-  -webkit-backface-visibility: hidden; 
+  -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
 }
 
+/* Style the front side */
 .flip-box-front {
   background-color:#242424;
   color: black;
 }
 
+/* Style the back side */
 .flip-box-back {
   display: flex;
   margin: 0; 
@@ -131,7 +133,16 @@ a.nav-link {
   background-color:#242424;
   color: white;
   transform: rotateY(180deg);
-} */
+}
+
+.question-mark {
+  height: 400px; 
+  width: 400px; 
+  padding-top:0; 
+  padding-bottom: 60px; 
+  
+}
+
 
 
 @keyframes navbar-brand-spin {
