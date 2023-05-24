@@ -1,3 +1,9 @@
+* {
+  font-family: 'Kanit', sans-serif;
+  color: rgb(81, 162, 255); 
+  background-color: #242424;
+}
+
 #navbar {
   background-color: #242424;
 }
@@ -40,6 +46,13 @@ img {
 a.nav-link {
   margin-right: 40px; 
   margin-left: 40px;
+}
+
+.header {
+  background-color: #242424;
+  margin: auto; 
+  width: 50%; 
+  text-align: center; 
 }
 
 @keyframes navbar-brand-spin {
