@@ -14,7 +14,7 @@ export default function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarCollapse">
-          <ul className="navbar-nav ml-auto navbar-pills">
+          <ul className="navbar-nav ml-auto navbar-white">
             <li className="navbar-item">
               <a href="/Search" className="nav-link">
                 Search 
