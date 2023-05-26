@@ -1,9 +1,13 @@
-import React from "react"
+import React from "react";
 
 export default function Search() {
-  <>
-  <div>
-    <h3>Search the most recent tweets</h3>
-  </div>
-  </>
+  return (
+    <>
+      <div className="header">
+        <h3>Search the most recent tweets</h3>
+      </div>
+      <input className="input" type="text" placeholder="enter keyword"/>
+      <button>Search</button>
+    </>
+  );
 }

@@ -1,6 +1,7 @@
 * {
   font-family: 'Kanit', sans-serif;
   color: rgb(81, 162, 255); 
+  
 }
 
 #navbar {
@@ -51,7 +52,7 @@ a.nav-link {
 } 
 
 .main-head {
-  padding-top: 45px; 
+  padding-top: 60px; 
   font-size: 80px;
   color: #fff;
   text-align: center;
@@ -79,7 +80,7 @@ a.nav-link {
 
 .sub-head {
   margin: 0; 
-  padding-bottom: 120px; 
+  padding-bottom: 60px; 
 
 }
 
@@ -88,17 +89,17 @@ a.nav-link {
   justify-content: space-evenly; 
   background-color: #242424;
   margin: auto;
-  width: 100%
+  width: 100%; 
 }
 
 .flip-box {
   background-color: transparent;
   width: 400px;
   height: 400px;
-  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  perspective: 1000px; 
 }
 
-/* This container is needed to position the front and back side */
+
 .flip-box-inner {
   position: relative;
   width: 100%;
@@ -108,27 +109,30 @@ a.nav-link {
   transform-style: preserve-3d;
 }
 
-/* Do an horizontal flip when you move the mouse over the flip box container */
+
 .flip-box:hover .flip-box-inner {
   transform: rotateY(180deg);
 }
 
-/* Position the front and back side */
+
 .flip-box-front, .flip-box-back {
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
-  -webkit-backface-visibility: hidden; /* Safari */
+  -webkit-backface-visibility: hidden; 
   backface-visibility: hidden;
 }
 
-/* Style the front side */
+
 .flip-box-front {
   background-color:#242424;
   color: black;
 }
 
-/* Style the back side */
+
 .flip-box-back {
   display: flex;
   margin: 0; 
@@ -142,13 +146,14 @@ a.nav-link {
 .question-mark {
   height: 400px; 
   width: 400px; 
-  padding-top:0; 
+  padding-top: 10px; 
   
 }
 
 .magnifier {
   height: 350px;
   width: 350px;
+  padding-bottom: 50px;
 }
 
 

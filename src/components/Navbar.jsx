@@ -22,7 +22,7 @@ export default function Navbar() {
             </li>
             <li className="navbar-item">
               <a href="/Random" className="nav-link">
-                Random Tweet
+                Random
               </a>
             </li>
           </ul>

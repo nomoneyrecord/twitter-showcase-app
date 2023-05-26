@@ -20,7 +20,7 @@ export default function Home() {
               />
             </div>
             <div className="flip-box-back">
-              <h3 >Search recent tweets</h3>
+              <h3 className="search-back">Search recent tweets</h3>
             </div>
           </div>
         </div>
@@ -34,7 +34,7 @@ export default function Home() {
               />
             </div>
             <div className="flip-box-back">
-              <h3>
+              <h3 className="random-back">
                 Get a random tweet from 5 of my favorite minds
               </h3>
             </div>
@@ -43,14 +43,18 @@ export default function Home() {
       </div>
       <div className="glow-btns">
         <div className="search-btn">
+          <a href="/Search">
           <button class="glow-on-hover" type="button">
             Search
           </button>
+          </a>
         </div>
         <div className="random-btn">
+          <a href="/Random">
           <button class="glow-on-hover" type="button">
             Random
           </button>
+          </a>
         </div>
       </div>
     </>
