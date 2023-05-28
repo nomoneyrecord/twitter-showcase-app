@@ -180,13 +180,23 @@ a.nav-link {
   background-color: #242424;
 }
 
-.search-btn {
-  margin-right: 90px; 
+
+.input-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background-color: #242424;
+  margin: 0; 
 }
 
-.random-btn {
-
-}
+.search-header {
+  margin-bottom: 0; 
+  padding-bottom: 8px; 
+  padding-top: 20px; 
+  width: 100%; 
+  text-align: center; 
+  background-color:#242424;
+} 
 
 .glow-on-hover {
   width: 220px;
