@@ -174,29 +174,11 @@ a.nav-link {
 }
 
 .glow-btns {
-  margin: 0;
+  margin: auto;
   display: flex;
   justify-content: space-evenly;
   background-color: #242424;
 }
-
-
-.input-container {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  background-color: #242424;
-  margin: 0; 
-}
-
-.search-header {
-  margin-bottom: 0; 
-  padding-bottom: 8px; 
-  padding-top: 20px; 
-  width: 100%; 
-  text-align: center; 
-  background-color:#242424;
-} 
 
 .glow-on-hover {
   width: 220px;
@@ -258,3 +240,23 @@ a.nav-link {
   50% { background-position: 400% 0; }
   100% { background-position: 0 0; }
 }
+
+
+/* Search page styling  */
+
+.input-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background-color: #242424;
+  margin: 0; 
+}
+
+.search-header {
+  margin-bottom: 0; 
+  padding-bottom: 8px; 
+  padding-top: 20px; 
+  width: 100%; 
+  text-align: center; 
+  background-color:#242424;
+} 
