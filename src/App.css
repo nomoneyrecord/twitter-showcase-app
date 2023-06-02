@@ -332,3 +332,15 @@ a.nav-link {
   50% { background-position: 400% 0; }
   100% { background-position: 0 0; }
 }
+
+
+/* Random page styling */
+
+.random-header {
+  margin-bottom: 0; 
+  padding-bottom: 8px; 
+  padding-top: 60px; 
+  width: 100%; 
+  text-align: center; 
+  background-color:#242424;
+} 
