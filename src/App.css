@@ -344,3 +344,18 @@ a.nav-link {
   text-align: center; 
   background-color:#242424;
 } 
+
+.random-tweeters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: auto;
+  background-color: #242424;
+}
+.random-tweeters img {
+  margin: 10px; 
+  width: 100px;  
+  height: auto;  
+}
+
