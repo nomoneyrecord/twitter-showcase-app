@@ -80,7 +80,7 @@ a.nav-link {
 
 .sub-head {
   margin: 0; 
-  padding-bottom: 60px; 
+  padding-bottom: 50px; 
 
 }
 
@@ -174,15 +174,15 @@ a.nav-link {
 }
 
 .glow-btns {
-
+  margin-bottom: 50px;
   display: flex;
   justify-content: space-evenly;
   background-color: #242424;
 }
 
-/* #glow-button-search {
-  margin-right: 100px;
-} */
+.search-btn-home {
+  margin-right: 90px;
+}
 
 .glow-on-hover {
   width: 220px;
@@ -366,39 +366,4 @@ a.nav-link {
   position: relative;
   z-index: 0;
   border-radius: 20px;
-}
-
-.glow-on-hover {
-  width: 220px;
-  height: 50px;
-  border: none;
-  outline: none;
-  font-size:large;
-  color: #fff;
-  background: #111;
-  cursor: pointer;
-  position: relative;
-  z-index: 0;
-  border-radius: 10px;
-}
-
-.glow-on-hover:before {
-  content: '';
-  background: linear-gradient(45deg, #0aecf4, #0190d3, #4e46f3, #22a3df, #00ffd5, #002bff, #0a506c, #6b91ea, #22dcad);
-  position: absolute;
-  top: -2px;
-  left:-2px;
-  background-size: 400%;
-  z-index: -1;
-  filter: blur(5px);
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  animation: glowing 20s linear infinite;
-  opacity: 0;
-  transition: opacity .3s ease-in-out;
-  border-radius: 10px;
-}
-
-.glow-on-hover:active {
-  color: rgb(229, 252, 255)
 }

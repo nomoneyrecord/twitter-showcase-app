@@ -42,7 +42,7 @@ export default function Home() {
         </div>
       </div>
       <div className="glow-btns">
-        <div className="search-btn">
+        <div className="search-btn-home">
           <a href="/Search">
           <button id="glow-button-search" class="glow-on-hover" type="button">
             Search

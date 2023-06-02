@@ -12,6 +12,7 @@ export default function Random() {
         <img src="./images/Elon-Musk.jpeg" alt="Picture of Elon Musk" />
         <img src="./images/Gwynne-Shotwell.jpeg" alt="Picture of Gwynne Shotwell" />
         <img src="./images/Jordan-Peterson.jpeg" alt="Picture of Jordan Peterson" />
+        
       </div>
     </>
   )
