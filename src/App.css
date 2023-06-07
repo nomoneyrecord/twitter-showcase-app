@@ -345,7 +345,7 @@ a.nav-link {
   background-color:#242424;
 } 
 
-.random-tweeters {
+.container-tweeters {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -353,7 +353,7 @@ a.nav-link {
   margin: auto;
   background-color: #242424;
 }
-.random-tweeters img {
+.container-tweeters img {
   margin: 20px; 
   width: 100px;  
   height: auto;  
@@ -366,4 +366,49 @@ a.nav-link {
   position: relative;
   z-index: 0;
   border-radius: 20px;
+}
+
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 20px;  
+  border: none;
+  outline: none;
+  font-size:large;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 20px;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #008CBA;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+
+.container-tweeters:hover .overlay {
+  height: 100%;
+}
+
+.text {
+  white-space: nowrap; 
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
 }

@@ -13,6 +13,7 @@ export default function Search() {
   const handleSearch = () => {
     console.log(searchTerm);
     //API request functon should be called here, apiRequest(searchTerm);
+    setSearchTerm("");
   };
 
   return (
@@ -30,7 +31,9 @@ export default function Search() {
           value={searchTerm}
           onChange={handleInputChange}
         />
-        <button className="search-btn" onClick={handleSearch}>Search</button>
+        <button className="search-btn" onClick={handleSearch}>
+          Search
+        </button>
       </div>
     </>
   );
