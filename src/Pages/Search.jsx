@@ -11,7 +11,7 @@ export default function Search() {
   };
 
   const handleSearch = () => {
-    console.log("Search term is : ", searchTerm);
+    console.log(searchTerm);
     //API request functon should be called here, apiRequest(searchTerm);
   };
 
