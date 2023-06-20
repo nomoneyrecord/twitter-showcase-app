@@ -45,14 +45,14 @@ export default function Home() {
       <div className="glow-btns">
         <div className="search-btn-home">
           <a href="/Search">
-          <button id="glow-button-search" class="glow-on-hover" type="button">
+          <button id="glow-button-search" className="glow-on-hover" type="button">
             Search
           </button>
           </a>
         </div>
         <div className="random-btn">
           <a href="/Random">
-          <button id="glow-button-random" class="glow-on-hover" type="button">
+          <button id="glow-button-random" className="glow-on-hover" type="button">
             Random
           </button>
           </a>

@@ -10,11 +10,13 @@ export default function Search() {
     setSearchTerm(inputRef.current.value);
   };
 
-  const handleSearch = () => {
+  const handleSearch = (e) => {
     console.log(searchTerm);
+    e.preventDefault()
     //API request functon should be called here, apiRequest(searchTerm);
     setSearchTerm("");
   };
+
 
   return (
     <>
@@ -22,6 +24,7 @@ export default function Search() {
         <h3>Search the most recent tweets</h3>
       </div>
       <div className="input-container">
+        <form onSubmit={handleSearch}>
         <input
           ref={inputRef}
           id="search-input"
@@ -31,9 +34,10 @@ export default function Search() {
           value={searchTerm}
           onChange={handleInputChange}
         />
-        <button className="search-btn" onClick={handleSearch}>
+        <button type="submit" className="search-btn">
           Search
         </button>
+        </form>
       </div>
     </>
   );
