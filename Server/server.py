@@ -33,5 +33,5 @@ def get_tweets():
     return json.dumps(tweets), 200
 
 if __name__ == "__main__":
-    app.run(port=5173)
+    app.run()
 

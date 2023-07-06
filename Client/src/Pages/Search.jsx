@@ -19,6 +19,7 @@ export default function Search() {
           q: searchTerm
         }
       });
+      console.log(response.data);
       setTweets(response.data);
     } catch (error) {
       console.error('Failed to fetch tweets', error);
