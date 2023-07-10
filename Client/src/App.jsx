@@ -1,10 +1,11 @@
-import { useState } from 'react'
-import './App.css'
-import NavbarOne from './components/Navbar'
-import 'bootstrap/dist/css/bootstrap.css'
-import Home from "./Pages/Home"
-import Search from "./Pages/Search"
-import Random from "./Pages/Random"
+import { useState } from 'react';
+import React from 'react';
+import './App.css';
+import NavbarOne from './components/Navbar';
+import 'bootstrap/dist/css/bootstrap.css';
+import Home from "./Pages/Home";
+import Search from "./Pages/Search";
+import Random from "./Pages/Random";
 
 
 
