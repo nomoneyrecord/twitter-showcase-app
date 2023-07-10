@@ -1,37 +1,53 @@
-from flask import Flask, request
-import json
-from flask_cors import CORS
+from flask import Flask, request, jsonify
+import tweepy
 
 app = Flask(__name__)
-CORS(app)
 
 @app.route("/api/tweets")
 def get_tweets():
-    tweets = [
-        {
-            "id": 1,
-            "text": "This is my first tweet",
-            "username": "GaryHughesJr"
-        },
-        {
-            "id": 2,
-            "text": "This is my second tweet",
-            "username": "GaryHughesJr"
-        },
-        {
-            "id": 3,
-            "text": "omg twitter is so amazing",
-            "username": "GaryHughesJr"
-        }
-    ]
-
     search_term = request.args.get('q')
+    if not search_term:
+        return jsonify([])
 
-    if search_term:
-        tweets = [tweet for tweet in tweets if search_term.lower() in tweet['text'].lower()]
+    try:
 
-    return json.dumps(tweets), 200
+        
+        auth = tweepy.AppAuthHandler('LSetelpESvmdymo9JXFQ9xsqt', '5sz1W9mKHWJRJ8eZh8qrxZDgQEoY5OCPGgXkl5mvLwbQRTz6DO')
+        api = tweepy.API(auth, wait_on_rate_limit=True)
+
+
+        tweets = api.search(q=search_term, tweet_mode='extended', count=10)
+
+
+
+
+ 
+        result = []
+        for tweet in tweets:
+            tweet_info = {
+                "id": tweet.id_str,
+                "text": tweet.full_text,
+                "username": tweet.user.screen_name
+            }
+            result.append(tweet_info)
+
+        return jsonify(result), 200
+
+    except Exception as e:
+        print(f"An error occurred: {str(e)}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
+
 
 if __name__ == "__main__":
     app.run()
+
+
+
+
+
+
+
+
 

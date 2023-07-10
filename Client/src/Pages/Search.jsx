@@ -14,7 +14,7 @@ export default function Search() {
 
   const getTweets = async () => {
     try {
-      const response = await axios.get("/api/tweets", {
+      const response = await axios.get("http://localhost:5173/api/tweets", {
         params: {
           q: searchTerm,
         },
