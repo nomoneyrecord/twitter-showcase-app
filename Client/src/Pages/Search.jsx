@@ -16,13 +16,13 @@ export default function Search() {
     try {
       const response = await axios.get("/api/tweets", {
         params: {
-          q: searchTerm
-        }
+          q: searchTerm,
+        },
       });
       console.log(response.data);
       setTweets(response.data);
     } catch (error) {
-      console.error('Failed to fetch tweets', error);
+      console.error("Failed to fetch tweets", error);
     }
   };
 
