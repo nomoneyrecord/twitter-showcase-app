@@ -32,6 +32,7 @@ a.navbar-brand {
   filter: drop-shadow(0 0 2em #00c8ffaa);
 }
 
+
 img {
   width: 80%; 
   border-radius: 30%; 
@@ -42,17 +43,6 @@ a.nav-link {
   margin-left: 60px;
   font-size: 22pt; 
 }
-
-.navbar-toggler {
-  margin-right: 60px; 
-}
-
-a.dropdown-link {
-  margin-right: 11px; 
-  font-size: 18pt; 
-  margin-left: 650pt;
-}
-
 
  .header {
   margin: auto; 
@@ -413,12 +403,3 @@ a.dropdown-link {
   -ms-transform: translate(-50%, -50%);
 }
 
-@media (max-width: 992px) {
-  .navbar .navbar-collapse.show {
-    position: absolute;
-    right: 0;
-    left: auto;
-    width: 200px; /* adjust width as per your needs */
-    background-color: #343a40; /* same color as your navbar */
-  }
-}
