@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-import tweepy
+import requests
 
 app = Flask(__name__)
 
@@ -10,24 +10,41 @@ def get_tweets():
         return jsonify([])
 
     try:
+        # Set the API token and secret
+        api_token = 'hc0Byc4uGBD4cSjT0mlOquGzq'
+        api_secret = 'HVb0i3HU4vJuggl6JKWCVgfrB7yl9ce01S0sxef8K3yOcNsDzZ'
 
-        
-        auth = tweepy.AppAuthHandler('LSetelpESvmdymo9JXFQ9xsqt', '5sz1W9mKHWJRJ8eZh8qrxZDgQEoY5OCPGgXkl5mvLwbQRTz6DO')
-        api = tweepy.API(auth, wait_on_rate_limit=True)
+        # Get the bearer token using the API token and secret
+        auth_url = 'https://api.twitter.com/oauth2/token'
+        auth_headers = {
+            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+            'Authorization': 'Basic base64_encoded(api_token:api_secret)'
+        }
+        auth_data = {
+            'grant_type': 'client_credentials'
+        }
+        auth_response = requests.post(auth_url, headers=auth_headers, data=auth_data)
+        bearer_token = auth_response.json().get('access_token')
 
+        # Make the request to the Twitter API using the bearer token
+        search_url = 'https://api.twitter.com/2/tweets/search/recent'
+        search_params = {
+            'query': search_term,
+            'tweet.fields': 'created_at'
+        }
+        search_headers = {
+            'Authorization': f'Bearer {bearer_token}'
+        }
+        search_response = requests.get(search_url, headers=search_headers, params=search_params)
+        tweets = search_response.json()
 
-        tweets = api.search(q=search_term, tweet_mode='extended', count=10)
-
-
-
-
- 
+        # Extract relevant tweet information
         result = []
-        for tweet in tweets:
+        for tweet in tweets['data']:
             tweet_info = {
-                "id": tweet.id_str,
-                "text": tweet.full_text,
-                "username": tweet.user.screen_name
+                "id": tweet['id'],
+                "text": tweet['text'],
+                "username": tweet['author_id']
             }
             result.append(tweet_info)
 
@@ -35,19 +52,8 @@ def get_tweets():
 
     except Exception as e:
         print(f"An error occurred: {str(e)}")
-        import traceback
-        traceback.print_exc()
         return jsonify({"error": str(e)}), 500
 
 
 if __name__ == "__main__":
     app.run()
-
-
-
-
-
-
-
-
-
