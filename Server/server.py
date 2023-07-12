@@ -10,37 +10,32 @@ def get_tweets():
         return jsonify([])
 
     try:
-        # Set the API token and secret
-        api_token = 'hc0Byc4uGBD4cSjT0mlOquGzq'
-        api_secret = 'HVb0i3HU4vJuggl6JKWCVgfrB7yl9ce01S0sxef8K3yOcNsDzZ'
+        # Set Twitter API bearer token here
+        bearer_token = 'AAAAAAAAAAAAAAAAAAAAAPly9QAAAAAAOgF9A%2Ff1SJN0O0utkX%2BNF%2B41TkM%3D5He51JIFSZ0dt3Do4oJM3dG7qu3XJ3Lqqych9p6olrbt016GTi'
 
-        # Get the bearer token using the API token and secret
-        auth_url = 'https://api.twitter.com/oauth2/token'
-        auth_headers = {
-            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-            'Authorization': 'Basic base64_encoded(api_token:api_secret)'
-        }
-        auth_data = {
-            'grant_type': 'client_credentials'
-        }
-        auth_response = requests.post(auth_url, headers=auth_headers, data=auth_data)
-        bearer_token = auth_response.json().get('access_token')
+        # Set Twitter API endpoint URL here
+        url = 'https://api.twitter.com/2/tweets/search/recent'
 
-        # Make the request to the Twitter API using the bearer token
-        search_url = 'https://api.twitter.com/2/tweets/search/recent'
-        search_params = {
+        # Construct the headers with the bearer token
+        headers = {
+            'Authorization': f'Bearer {bearer_token}',
+            'Content-Type': 'application/json'
+        }
+
+        # Construct the JSON payload
+        payload = {
             'query': search_term,
-            'tweet.fields': 'created_at'
+            'tweet.fields': 'id,text,author_id',
+            'max_results': 10
         }
-        search_headers = {
-            'Authorization': f'Bearer {bearer_token}'
-        }
-        search_response = requests.get(search_url, headers=search_headers, params=search_params)
-        tweets = search_response.json()
+
+        # Send the POST request to the Twitter API
+        response = requests.post(url, headers=headers, json=payload)
+        response_data = response.json()
 
         # Extract relevant tweet information
         result = []
-        for tweet in tweets['data']:
+        for tweet in response_data['data']:
             tweet_info = {
                 "id": tweet['id'],
                 "text": tweet['text'],
@@ -52,6 +47,8 @@ def get_tweets():
 
     except Exception as e:
         print(f"An error occurred: {str(e)}")
+        import traceback
+        traceback.print_exc()
         return jsonify({"error": str(e)}), 500
 
 
