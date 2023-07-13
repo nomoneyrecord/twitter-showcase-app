@@ -11,7 +11,7 @@ def get_tweets():
         return jsonify([])
 
     try:
-        bearer_token = 'YOUR_BEARER_TOKEN'
+        bearer_token = 'AAAAAAAAAAAAAAAAAAAAAPly9QAAAAAAOgF9A%2Ff1SJN0O0utkX%2BNF%2B41TkM%3D5He51JIFSZ0dt3Do4oJM3dG7qu3XJ3Lqqych9p6olrbt016GTi'
 
         url = 'https://api.twitter.com/2/tweets/search/recent'
 
@@ -32,6 +32,7 @@ def get_tweets():
         print("Response Data:", json.dumps(response_data, indent=2))
 
         if 'data' in response_data:
+
             result = []
             for tweet in response_data['data']:
                 tweet_info = {
