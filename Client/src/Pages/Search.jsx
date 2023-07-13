@@ -25,7 +25,7 @@ export default function Search() {
       console.error("Failed to fetch tweets", error);
     }
   };
-
+ 
   const handleInputChange = () => {
     setSearchTerm(inputRef.current.value);
   };
