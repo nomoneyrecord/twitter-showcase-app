@@ -21,8 +21,8 @@ def get_tweets():
         }
 
         payload = {
-            'query': search_term,
-            'tweet.fields': 'id,text,author_id',
+            'query': search_term, 
+            'tweet.fields': 'id,text',
             'max_results': 10
         }
 
@@ -38,7 +38,6 @@ def get_tweets():
                 tweet_info = {
                     "id": tweet['id'],
                     "text": tweet['text'],
-                    "username": tweet['author_id']
                 }
                 result.append(tweet_info)
 
