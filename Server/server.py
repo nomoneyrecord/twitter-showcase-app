@@ -4,6 +4,7 @@ import json
 
 app = Flask(__name__)
 
+
 @app.route("/api/tweets")
 def get_tweets():
     search_term = request.args.get('query')
@@ -13,7 +14,7 @@ def get_tweets():
     try:
         bearer_token = 'AAAAAAAAAAAAAAAAAAAAAPly9QAAAAAAOgF9A%2Ff1SJN0O0utkX%2BNF%2B41TkM%3D5He51JIFSZ0dt3Do4oJM3dG7qu3XJ3Lqqych9p6olrbt016GTi'
 
-        url = 'https://api.twitter.com/2/tweets/search/recent?query=nasa'
+        url = 'https://api.twitter.com/2/tweets/search/recent'
 
         headers = {
             'Authorization': f'Bearer {bearer_token}',
@@ -21,12 +22,12 @@ def get_tweets():
         }
 
         payload = {
-            'query': search_term, 
-            'tweet.fields': 'id,text',
+            'query': f'from:{search_term}',
+            'tweet.fields': 'id,text,author_id',
             'max_results': 10
         }
 
-        response = requests.get(url, headers=headers, json=payload)
+        response = requests.get(url, headers=headers, params=payload)
         response_data = response.json()
 
         print("Response Data:", json.dumps(response_data, indent=2))
@@ -38,6 +39,7 @@ def get_tweets():
                 tweet_info = {
                     "id": tweet['id'],
                     "text": tweet['text'],
+                    "author_id": tweet['author_id']
                 }
                 result.append(tweet_info)
 
