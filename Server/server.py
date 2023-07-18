@@ -1,11 +1,13 @@
 from flask import Flask, request, jsonify
 import requests
 import json
+import os
 from dotenv import load_dotenv
 
 load_dotenv()
 
 app = Flask(__name__)
+
 
 
 @app.route("/api/tweets")
@@ -15,7 +17,7 @@ def get_tweets():
         return jsonify([])
 
     try:
-        bearer_token = 'AAAAAAAAAAAAAAAAAAAAAPly9QAAAAAAOgF9A%2Ff1SJN0O0utkX%2BNF%2B41TkM%3D5He51JIFSZ0dt3Do4oJM3dG7qu3XJ3Lqqych9p6olrbt016GTi'
+        bearer_token = os.environ.get("TWITTER_BEARER_TOKEN")
 
         url = 'https://api.twitter.com/2/tweets/search/recent'
 
