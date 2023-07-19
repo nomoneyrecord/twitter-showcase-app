@@ -19,7 +19,7 @@ def get_tweets():
     try:
         bearer_token = os.environ.get("TWITTER_BEARER_TOKEN")
 
-        url = 'https://api.twitter.com/2/users/:id/tweets'
+        url = 'https://api.twitter.com/2/users/44196397/tweets'
 
         headers = {
             'Authorization': f'Bearer {bearer_token}',
