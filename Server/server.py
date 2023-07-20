@@ -1,63 +1,58 @@
 from flask import Flask, request, jsonify
 import requests
-import json
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
-
 app = Flask(__name__)
-
-
+load_dotenv()
 
 @app.route("/api/tweets")
 def get_tweets():
-    search_term = request.args.get('query')
-    if not search_term:
+    username = request.args.get('username')
+    if not username:
         return jsonify([])
 
     try:
         bearer_token = os.environ.get("TWITTER_BEARER_TOKEN")
 
-        url = 'https://api.twitter.com/2/users/44196397/tweets'
-
+        user_lookup_url = f"https://api.twitter.com/2/users/by/username/{username}"
         headers = {
             'Authorization': f'Bearer {bearer_token}',
             'Content-Type': 'application/json'
         }
 
-        payload = {
-            'query': f'from:{search_term}',
-            'tweet.fields': 'id,text,author_id',
-            'max_results': 10
-        }
+        user_lookup_response = requests.get(user_lookup_url, headers=headers)
+        user_lookup_data = user_lookup_response.json()
 
-        response = requests.get(url, headers=headers, params=payload)
-        response_data = response.json()
+        if 'data' in user_lookup_data:
+            user_id = user_lookup_data['data']['id']
 
-        print("Response Data:", json.dumps(response_data, indent=2))
+            tweet_url = f"https://api.twitter.com/2/users/{user_id}/tweets"
+            tweet_params = {
+                'tweet.fields': 'id,text,author_id',
+                'max_results': 10
+            }
 
-        if 'data' in response_data:
+            tweet_response = requests.get(tweet_url, headers=headers, params=tweet_params)
+            tweet_data = tweet_response.json()
 
-            result = []
-            for tweet in response_data['data']:
-                tweet_info = {
-                    "id": tweet['id'],
-                    "text": tweet['text'],
-                    "author_id": tweet['author_id']
-                }
-                result.append(tweet_info)
+            if 'data' in tweet_data:
+                result = []
+                for tweet in tweet_data['data']:
+                    tweet_info = {
+                        "id": tweet['id'],
+                        "text": tweet['text'],
+                        "username": tweet['author_id']
+                    }
+                    result.append(tweet_info)
 
-            return jsonify(result), 200
-        else:
-            return jsonify([]), 200
+                return jsonify(result), 200
+
+        return jsonify([]), 200
 
     except Exception as e:
         print(f"An error occurred: {str(e)}")
-        import traceback
-        traceback.print_exc()
         return jsonify({"error": str(e)}), 500
-
 
 if __name__ == "__main__":
     app.run()

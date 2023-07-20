@@ -16,7 +16,7 @@ export default function Search() {
     try {
       const response = await axios.get("http://localhost:5173/api/tweets", {
         params: {
-          query: searchTerm,  
+          username: searchTerm,  
         },
       });
       console.log(response.data);
