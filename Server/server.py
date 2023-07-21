@@ -29,9 +29,9 @@ def get_tweets():
 
             tweet_url = f"https://api.twitter.com/2/users/{user_id}/tweets"
             tweet_params = {
-                'tweet.fields': 'id,text,author_id,created_at', # Add any additional tweet fields you want
-                'expansions': 'author_id', # Request to expand the author_id to get user info
-                'user.fields': 'username'  # Include the username field
+                'tweet.fields': 'id,text,author_id,created_at', 
+                'expansions': 'author_id', 
+                'user.fields': 'username'  
             }
 
             tweet_response = requests.get(tweet_url, headers=headers, params=tweet_params)
@@ -41,10 +41,10 @@ def get_tweets():
                 result = []
                 for tweet in tweet_data['data']:
                     author_id = tweet['author_id']
-                    # Find the corresponding user object in the includes
+                    
                     user_info = next((user for user in tweet_data.get('includes', {}).get('users', []) if user['id'] == author_id), None)
 
-                    # Use the username from the user_info
+                    
                     tweet_info = {
                         "id": tweet['id'],
                         "text": tweet['text'],
