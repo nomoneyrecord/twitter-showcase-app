@@ -8,7 +8,7 @@ load_dotenv()
 
 @app.route("/api/tweets")
 def get_tweets():
-    username = request.args.get('username')
+    username = request.args.get('username', )
     if not username:
         return jsonify([])
 
@@ -30,6 +30,8 @@ def get_tweets():
             tweet_url = f"https://api.twitter.com/2/users/{user_id}/tweets"
             tweet_params = {
                 'tweet.fields': 'id,text,author_id',
+                'expansions': 'author_id',
+                'user.fields': 'username',
                 'max_results': 10
             }
 
@@ -42,7 +44,8 @@ def get_tweets():
                     tweet_info = {
                         "id": tweet['id'],
                         "text": tweet['text'],
-                        "username": tweet['author_id']
+                        "username": tweet['username'],
+                        "author_username": tweet['author']['username']
                     }
                     result.append(tweet_info)
 
