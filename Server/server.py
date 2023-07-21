@@ -8,7 +8,7 @@ load_dotenv()
 
 @app.route("/api/tweets")
 def get_tweets():
-    username = request.args.get('username', )
+    username = request.args.get('username')
     if not username:
         return jsonify([])
 
@@ -29,10 +29,9 @@ def get_tweets():
 
             tweet_url = f"https://api.twitter.com/2/users/{user_id}/tweets"
             tweet_params = {
-                'tweet.fields': 'id,text,author_id',
-                'expansions': 'author_id',
-                'user.fields': 'username',
-                'max_results': 10
+                'tweet.fields': 'id,text,author_id,created_at', # Add any additional tweet fields you want
+                'expansions': 'author_id', # Request to expand the author_id to get user info
+                'user.fields': 'username'  # Include the username field
             }
 
             tweet_response = requests.get(tweet_url, headers=headers, params=tweet_params)
@@ -41,11 +40,15 @@ def get_tweets():
             if 'data' in tweet_data:
                 result = []
                 for tweet in tweet_data['data']:
+                    author_id = tweet['author_id']
+                    # Find the corresponding user object in the includes
+                    user_info = next((user for user in tweet_data.get('includes', {}).get('users', []) if user['id'] == author_id), None)
+
+                    # Use the username from the user_info
                     tweet_info = {
                         "id": tweet['id'],
                         "text": tweet['text'],
-                        "username": tweet['username'],
-                        "author_username": tweet['author']['username']
+                        "username": user_info['username'] if user_info else None
                     }
                     result.append(tweet_info)
 
