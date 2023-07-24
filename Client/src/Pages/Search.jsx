@@ -5,12 +5,15 @@ import axios from 'axios';
 export default function Search() {
   const [searchTerm, setSearchTerm] = useState("");
   const [tweets, setTweets] = useState([]);
+  const [searched, setSearched] = useState(null); // Set initial value to null
 
   const inputRef = useRef();
 
   useEffect(() => {
-    getTweets();
-  }, []);
+    if (searched) {
+      getTweets();
+    }
+  }, [searched]);
 
   const getTweets = async () => {
     try {
@@ -21,19 +24,22 @@ export default function Search() {
       });
       console.log(response.data);
       setTweets(response.data);
+      setSearched(true); // Mark the search as done
     } catch (error) {
       console.error("Failed to fetch tweets", error);
+      setTweets([]); // Clear the tweets if there was an error
+      setSearched(true); // Mark the search as done even if there are no tweets
     }
   };
  
-  const handleInputChange = () => {
-    setSearchTerm(inputRef.current.value);
+  const handleInputChange = (e) => {
+    setSearchTerm(e.target.value);
   };
 
-  const handleSearch = (e) => {
+  const handleSearch = async (e) => {
     e.preventDefault();
-    getTweets();
-    setSearchTerm("");
+    setSearched(false); // Reset the searched state before the search
+    getTweets(); // Call getTweets to perform the search
   };
 
   return (
@@ -57,14 +63,21 @@ export default function Search() {
           </button>
         </form>
       </div>
-      <div className="tweet-cards">
-        {tweets.map((tweet) => (
-          <div key={tweet.id} className="card">
-            <h4>{tweet.username}</h4>
-            <p>{tweet.text}</p>
-          </div>
-        ))}
-      </div>
+      {searched === true && tweets.length === 0 && (
+        <div className="no-tweets-message">
+          No tweets found for the given username.
+        </div>
+      )}
+      {searched === true && tweets.length > 0 && (
+        <div className="tweet-cards">
+          {tweets.map((tweet) => (
+            <div key={tweet.id} className="card">
+              <h4>{tweet.username}</h4>
+              <p>{tweet.text}</p>
+            </div>
+          ))}
+        </div>
+      )}
     </>
   );
 }
