@@ -5,7 +5,7 @@ import axios from 'axios';
 export default function Search() {
   const [searchTerm, setSearchTerm] = useState("");
   const [tweets, setTweets] = useState([]);
-  const [searched, setSearched] = useState(null); // Set initial value to null
+  const [searched, setSearched] = useState(null); 
 
   const inputRef = useRef();
 
@@ -24,11 +24,11 @@ export default function Search() {
       });
       console.log(response.data);
       setTweets(response.data);
-      setSearched(true); // Mark the search as done
+      setSearched(true); 
     } catch (error) {
       console.error("Failed to fetch tweets", error);
-      setTweets([]); // Clear the tweets if there was an error
-      setSearched(true); // Mark the search as done even if there are no tweets
+      setTweets([]); 
+      setSearched(true); 
     }
   };
  
@@ -38,8 +38,8 @@ export default function Search() {
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    setSearched(false); // Reset the searched state before the search
-    getTweets(); // Call getTweets to perform the search
+    setSearched(false); 
+    getTweets(); 
   };
 
   return (
