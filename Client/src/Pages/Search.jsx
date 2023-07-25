@@ -5,7 +5,7 @@ import axios from 'axios';
 export default function Search() {
   const [searchTerm, setSearchTerm] = useState("");
   const [tweets, setTweets] = useState([]);
-  const [searched, setSearched] = useState(null); // Set initial value to null
+  const [searched, setSearched] = useState(null); 
 
   const inputRef = useRef();
 
@@ -42,42 +42,45 @@ export default function Search() {
     getTweets(); 
   };
 
-  return (
-    <>
-      <div className="search-header">
-        <h3>Search the most recent tweets</h3>
-      </div>
-      <div className="input-container">
-        <form onSubmit={handleSearch}>
-          <input
-            ref={inputRef}
-            id="search-input"
-            className="input"
-            type="text"
-            placeholder="enter keyword"
-            value={searchTerm}
-            onChange={handleInputChange}
-          />
-          <button type="submit" className="search-btn">
-            Search
-          </button>
-        </form>
-      </div>
-      {searched === true && tweets.length === 0 && (
-        <div className="no-tweets-message">
-          No tweets found for the given username.
+    return (
+      <>
+        <div className="search-header">
+          <h3>Search the most recent tweets</h3>
         </div>
-      )}
-      {searched === true && tweets.length > 0 && (
-        <div className="tweet-cards">
-          {tweets.map((tweet) => (
-            <div key={tweet.id} className="card">
-              <h4>{tweet.username}</h4>
-              <p>{tweet.text}</p>
-            </div>
-          ))}
+        <div className="input-container">
+          <form onSubmit={handleSearch}>
+            <input
+              ref={inputRef}
+              id="search-input"
+              className="input"
+              type="text"
+              placeholder="enter keyword"
+              value={searchTerm}
+              onChange={handleInputChange}
+            />
+            <button type="submit" className="search-btn">
+              Search
+            </button>
+          </form>
         </div>
-      )}
-    </>
-  );
-}
+        {searched === true && tweets.length === 0 && (
+          <div className="no-tweets-message">
+            No tweets found for the given username.
+          </div>
+        )}
+        {searched === true && tweets.length > 0 && (
+          <div className="tweet-cards">
+            {tweets.map((tweet) => (
+              <div key={tweet.id} className="card">
+                <h4>{tweet.username}</h4>
+                <p>{tweet.text}</p>
+                <p>Likes: {tweet.like_count}</p>
+                <p>Retweets: {tweet.retweet_count}</p>
+              </div>
+            ))}
+          </div>
+        )}
+      </>
+    );
+  }
+  
