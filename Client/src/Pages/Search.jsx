@@ -5,7 +5,7 @@ import axios from 'axios';
 export default function Search() {
   const [searchTerm, setSearchTerm] = useState("");
   const [tweets, setTweets] = useState([]);
-  const [searched, setSearched] = useState(null); 
+  const [searched, setSearched] = useState(null); // Set initial value to null
 
   const inputRef = useRef();
 
