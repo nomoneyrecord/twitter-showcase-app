@@ -52,7 +52,8 @@ def get_tweets():
                         "text": tweet['text'],
                         "username": user_info['username'] if user_info else None,
                         "like_count": tweet['public_metrics']['like_count'],
-                        "retweet_count": tweet['public_metrics']['retweet_count']
+                        "retweet_count": tweet['public_metrics']['retweet_count'],
+                        "profile_image_url_https": user_info['profile_image_url_https'] if user_info and 'profile_image_url_https' in user_info else None
                     }
 
                     result.append(tweet_info)
