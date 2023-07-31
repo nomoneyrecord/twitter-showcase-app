@@ -32,10 +32,12 @@
   display: flex;
   flex-direction: column; /* Stack the elements inside the card */
   margin-bottom: 10px;
+  margin-left: 200px;
+  width: 60%;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 5px solid rgb(160, 139, 242);
   border-radius: 5px;
-  background-color: #ffffff; /* Set the card background color */
+  background-color: #eaf7fa; /* Set the card background color */
 }
 
 /* Styles for the card header */

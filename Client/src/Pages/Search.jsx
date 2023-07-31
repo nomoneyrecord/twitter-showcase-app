@@ -69,9 +69,9 @@ export default function Search() {
           {tweets.map((tweet) => (
             <div key={tweet.id} className="card mb-3">
               <div className="card-header d-flex align-items-center">
-                {tweet.profile_image_url_https && (
+                {tweet.profile_image_url && (
                   <img
-                    src={tweet.profile_image_url_https}
+                    src={tweet.profile_image_url}
                     alt="Profile"
                     className="profile-image img-fluid rounded-circle me-2"
                     style={{ maxWidth: "40px" }}
