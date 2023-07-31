@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import "./Search.css";
 
 export default function Search() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -86,7 +87,6 @@ export default function Search() {
                   <span className="me-2">Likes: {tweet.like_count}</span>
                   <span>Retweets: {tweet.retweet_count}</span>
                 </div>
-                {/* Add additional elements as needed for the footer */}
               </div>
             </div>
           ))}

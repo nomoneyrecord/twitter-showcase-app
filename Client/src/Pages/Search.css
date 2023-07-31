@@ -1,0 +1,62 @@
+/* Search.css */
+
+/* Styles for the input container */
+.input-container {
+  display: flex;
+  margin-bottom: 0px;
+}
+
+/* Style for the search input */
+.input {
+  flex: 1;
+  margin-right: 10px;
+}
+
+/* Style for the search button */
+.search-btn {
+  width: 80px;
+}
+
+/* Style for the tweet cards container */
+.tweet-cards {
+  display: flex;
+  flex-direction: column; /* Stack the tweet cards in a column */
+  max-width: 1200px; /* Limit the maximum width of the tweet cards container */
+  margin: 0 auto; /* Center the tweet cards horizontally */
+  padding: 20px; /* Add some padding to create space around the tweet cards */
+  background-color: #242424; /* Set the background color */
+}
+
+/* Style for each individual tweet card */
+.card {
+  display: flex;
+  flex-direction: column; /* Stack the elements inside the card */
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #ffffff; /* Set the card background color */
+}
+
+/* Styles for the card header */
+.card-header {
+  display: flex;
+  align-items: center;
+}
+
+/* Style for the profile image */
+.profile-image {
+  max-width: 40px;
+  margin-right: 10px;
+}
+
+/* Styles for the tweet text */
+.card-body p {
+  margin-bottom: 0;
+}
+
+/* Styles for the card footer */
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+}
