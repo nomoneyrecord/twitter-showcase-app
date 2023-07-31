@@ -35,7 +35,7 @@
   margin-left: 200px;
   width: 60%;
   padding: 10px;
-  border: 5px solid rgb(160, 139, 242);
+  border: 5px solid rgb(139, 153, 242);
   border-radius: 5px;
   background-color: #eaf7fa; /* Set the card background color */
 }
@@ -48,8 +48,7 @@
 
 /* Style for the profile image */
 .profile-image {
-  max-width: 40px;
-  margin-right: 10px;
+  max-width: 40px; 
 }
 
 /* Styles for the tweet text */
