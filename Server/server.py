@@ -24,6 +24,7 @@ def get_tweets():
 
         user_lookup_response = requests.get(user_lookup_url, headers=headers)
         user_lookup_data = user_lookup_response.json()
+        print("User Lookup Data:", user_lookup_data)
 
         if 'data' in user_lookup_data:
             user_id = user_lookup_data['data']['id']
@@ -32,12 +33,13 @@ def get_tweets():
             tweet_params = {
                 'tweet.fields': 'id,text,author_id,created_at,public_metrics',
                 'expansions': 'author_id',
-                'user.fields': 'username'
+                'user.fields': 'username,profile_image_url'
             }
 
             tweet_response = requests.get(
                 tweet_url, headers=headers, params=tweet_params)
             tweet_data = tweet_response.json()
+            print("Tweet Data:", tweet_data)
 
             if 'data' in tweet_data:
                 result = []
@@ -53,7 +55,7 @@ def get_tweets():
                         "username": user_info['username'] if user_info else None,
                         "like_count": tweet['public_metrics']['like_count'],
                         "retweet_count": tweet['public_metrics']['retweet_count'],
-                        "profile_image_url_https": user_info['profile_image_url_https'] if user_info and 'profile_image_url_https' in user_info else None
+                        "profile_image_url": user_info['profile_image_url'] if user_info and 'profile_image_url' in user_info else None
                     }
 
                     result.append(tweet_info)
