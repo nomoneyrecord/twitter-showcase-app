@@ -61,3 +61,10 @@
   display: flex;
   justify-content: space-between;
 }
+
+/* Add these styles to your CSS */
+.icon-img {
+  width: 40px; /* Adjust the width as needed */
+  height: 40px; /* Adjust the height as needed */
+  margin-right: 5px; /* Add some spacing between the icon and the count */
+}

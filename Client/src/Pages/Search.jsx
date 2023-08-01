@@ -3,8 +3,6 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "./Search.css";
 
-
-
 export default function Search() {
   const [searchTerm, setSearchTerm] = useState("");
   const [tweets, setTweets] = useState([]);
@@ -86,8 +84,18 @@ export default function Search() {
               </div>
               <div className="card-footer d-flex justify-content-between">
                 <div>
-                  <span className="me-2">Likes: {tweet.like_count}</span>
-                  <span>Retweets: {tweet.retweet_count}</span>
+                  <img
+                    src="/images/like_icon.png"
+                    alt="Like Icon"
+                    className="icon-img"
+                  />
+                  <span className="me-2">{tweet.like_count}</span>
+                  <img
+                    src="/images/retweet_icon.png"
+                    alt="Retweet Icon"
+                    className="icon-img"
+                  />
+                  <span>{tweet.retweet_count}</span>
                 </div>
               </div>
             </div>
