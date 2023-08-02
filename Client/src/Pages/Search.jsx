@@ -108,8 +108,10 @@ export default function Search() {
           ))}
         </div>
       ) : searched === true ? (
-        <div className="no-tweets-message">
-          No Tweets Found for the given username.
+        <div className="no-tweets-container">
+          <div className="no-tweets-message">
+            Please use a valid username
+          </div>
         </div>
       ) : null}
     </>

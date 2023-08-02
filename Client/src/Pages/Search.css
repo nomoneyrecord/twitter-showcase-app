@@ -1,70 +1,83 @@
-/* Search.css */
 
-/* Styles for the input container */
 .input-container {
   display: flex;
   margin-bottom: 0px;
 }
 
-/* Style for the search input */
+
 .input {
   flex: 1;
   margin-right: 10px;
 }
 
-/* Style for the search button */
 .search-btn {
   width: 80px;
 }
 
-/* Style for the tweet cards container */
 .tweet-cards {
   display: flex;
-  flex-direction: column; /* Stack the tweet cards in a column */
-  max-width: 1200px; /* Limit the maximum width of the tweet cards container */
-  margin: 0 auto; /* Center the tweet cards horizontally */
-  padding: 20px; /* Add some padding to create space around the tweet cards */
-  background-color: #242424; /* Set the background color */
+  flex-direction: column; 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 20px; 
+  background-color: #242424; 
 }
 
-/* Style for each individual tweet card */
+
 .card {
   display: flex;
-  flex-direction: column; /* Stack the elements inside the card */
+  flex-direction: column; 
   margin-bottom: 10px;
   margin-left: 200px;
   width: 60%;
   padding: 10px;
   border: 5px solid rgb(139, 153, 242);
   border-radius: 5px;
-  background-color: #eaf7fa; /* Set the card background color */
+  background-color: #eaf7fa; 
 }
 
-/* Styles for the card header */
 .card-header {
   display: flex;
   align-items: center;
 }
 
-/* Style for the profile image */
 .profile-image {
   max-width: 40px; 
 }
 
-/* Styles for the tweet text */
 .card-body p {
   margin-bottom: 0;
 }
 
-/* Styles for the card footer */
 .card-footer {
   display: flex;
   justify-content: space-between;
 }
 
-/* Add these styles to your CSS */
 .icon-img {
-  width: 40px; /* Adjust the width as needed */
-  height: 40px; /* Adjust the height as needed */
-  margin-right: 5px; /* Add some spacing between the icon and the count */
+  width: 40px; 
+  height: 40px; 
+  margin-right: 5px; 
+}
+
+.no-tweets-container {
+  display: flex;
+  flex-direction: column; 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 20px; 
+  background-color: #242424; 
+}
+
+.no-tweets-message {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center the text vertically */
+  margin: 0 auto; /* Center the card horizontally */
+  max-width: 40%; /* Limit the maximum width of the card */
+  padding: 10px;
+  border: 5px solid rgb(139, 153, 242);
+  border-radius: 5px;
+  background-color: #26d7ff;
+  color: red
 }
