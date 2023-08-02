@@ -23,9 +23,15 @@ export default function Search() {
           username: searchTerm,
         },
       });
-      console.log(response.data);
-      setTweets(response.data);
-      setSearched(true);
+
+      if (response.data.length === 0) {
+        // If the response data is an empty array, it means no tweets were found for the given username
+        setTweets([]);
+        setSearched(true);
+      } else {
+        setTweets(response.data);
+        setSearched(true);
+      }
     } catch (error) {
       console.error("Failed to fetch tweets", error);
       setTweets([]);
@@ -55,7 +61,7 @@ export default function Search() {
             id="search-input"
             className="input"
             type="text"
-            placeholder="enter keyword"
+            placeholder="enter username"
             value={searchTerm}
             onChange={handleInputChange}
           />
@@ -64,7 +70,7 @@ export default function Search() {
           </button>
         </form>
       </div>
-      {searched === true && tweets.length > 0 && (
+      {searched === true && tweets.length > 0 ? (
         <div className="tweet-cards">
           {tweets.map((tweet) => (
             <div key={tweet.id} className="card mb-3">
@@ -101,7 +107,11 @@ export default function Search() {
             </div>
           ))}
         </div>
-      )}
+      ) : searched === true ? (
+        <div className="no-tweets-message">
+          No Tweets Found for the given username.
+        </div>
+      ) : null}
     </>
   );
 }
