@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "bootstrap": "^5.3.1",
+    "jquery": "^3.7.0",
+    "react-bootstrap": "^2.8.0",
+    "reactstrap": "^9.2.0"
+  }
+}
