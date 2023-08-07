@@ -73,6 +73,7 @@ export default function Random() {
           <span className="image-label">Elon Musk</span>
         </div>
         <div className="image-container">
+        <div className="image-container-guido">
           <img
             src="./images/Guido-van-Rossum.jpeg"
             alt="Picture of Guido van Rossum"
@@ -80,6 +81,7 @@ export default function Random() {
             style={{ height: "110px" }}
           />
           <span className="image-label">Guido van Rossum</span>
+        </div>
         </div>
         <div className="image-container">
           <img

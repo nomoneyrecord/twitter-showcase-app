@@ -352,14 +352,16 @@ a.nav-link {
   width: 100%;
   margin: auto;
   background-color: #242424;
+  flex-wrap: wrap; /* Allow the images to wrap when they reach the container's width */
 }
+
 .container-tweeters img {
   margin: 20px; 
-  width: 100px;  
-  height: auto;  
+  flex: 0 0 100px; /* Set the width of each image to 100px */
+  height: auto;
   border: none;
   outline: none;
-  font-size:large;
+  font-size: large;
   color: #fff;
   background: rgb(17, 17, 17);
   cursor: pointer;
@@ -367,6 +369,7 @@ a.nav-link {
   z-index: 0;
   border-radius: 20px;
 }
+
 
 
 .image {
@@ -426,3 +429,6 @@ a.nav-link {
   opacity: 1;
 }
 
+.image-container-guido {
+  width: 140px;
+}

@@ -16,24 +16,26 @@
 
 .tweet-cards {
   display: flex;
-  flex-direction: column; 
-  
-  margin: 0 auto; 
-  padding: 20px; 
-  background-color: #242424; 
+  flex-direction: column;
+  align-items: center; /* Center the tweet cards horizontally */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #242424;
 }
 
 
 .card {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   margin-bottom: 10px;
-  margin-left: 200px;
   width: 60%;
   padding: 10px;
   border: 5px solid rgb(63, 68, 105);
   border-radius: 5px;
-  background-color: #c9f5ff; 
+  background-color: #c9f5ff;
+  margin-left: auto; /* Move the tweet card to the right side of the container */
+  margin-right: auto;
 }
 
 .card-header {
@@ -73,9 +75,9 @@
 .no-tweets-message {
   display: flex;
   justify-content: center;
-  align-items: center; /* Center the text vertically */
-  margin: 0 auto; /* Center the card horizontally */
-  max-width: 40%; /* Limit the maximum width of the card */
+  align-items: center; 
+  margin: 0 auto; 
+  max-width: 40%; 
   padding: 10px;
   border: 5px solid rgb(63, 68, 105);
   border-radius: 5px;
