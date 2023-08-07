@@ -405,3 +405,23 @@ a.nav-link {
 
 
 
+.image-container {
+  position: relative;
+  /* Any other styles needed for the image container... */
+}
+
+.image-label {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-container:hover .image-label {
+  opacity: 1;
+}
