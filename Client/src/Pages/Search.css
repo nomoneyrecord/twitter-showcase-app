@@ -17,7 +17,7 @@
 .tweet-cards {
   display: flex;
   flex-direction: column; 
-  max-width: 1200px; 
+  
   margin: 0 auto; 
   padding: 20px; 
   background-color: #242424; 
@@ -31,9 +31,9 @@
   margin-left: 200px;
   width: 60%;
   padding: 10px;
-  border: 5px solid rgb(139, 153, 242);
+  border: 5px solid rgb(63, 68, 105);
   border-radius: 5px;
-  background-color: #eaf7fa; 
+  background-color: #c9f5ff; 
 }
 
 .card-header {
@@ -77,8 +77,8 @@
   margin: 0 auto; /* Center the card horizontally */
   max-width: 40%; /* Limit the maximum width of the card */
   padding: 10px;
-  border: 5px solid rgb(139, 153, 242);
+  border: 5px solid rgb(63, 68, 105);
   border-radius: 5px;
-  background-color: #26d7ff;
-  color: red
+  background-color: #c9f5ff;
+  color: rgb(171, 1, 1)
 }

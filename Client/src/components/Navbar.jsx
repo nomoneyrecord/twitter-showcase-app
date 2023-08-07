@@ -11,7 +11,7 @@ export default function Navbar() {
   return (
     <div>
       <nav id="navbar" className="navbar navbar-dark navbar-expand-lg ">
-        <a href="/" className="navbar-brand"><img src="/images/twitter-icon.jpeg" /></a>
+        <a href="/" className="navbar-brand"><img src="/images/X-icon.jpg" /></a>
         
         <div className="d-lg-none d-block" style={{ marginRight: '15px' }}>
           <button
