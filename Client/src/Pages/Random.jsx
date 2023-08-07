@@ -1,14 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import axios from "axios";
 
 export default function Random() {
   const [selectTweeter, setSelectedTweeter] = useState(null);
+  const [randomTweet, setRandomTweet] = useState(null);
 
   const handleImageClick = (tweeter) => {
     setSelectedTweeter(tweeter);
-    console.log(tweeter);
-    //API request function will be here
   };
+
+  useEffect(() => {
+    const getRandomTweet = async () => {
+      if (selectTweeter) {
+        try {
+          const response = await axios.get(
+            `http://localhost:5173/api/tweets`,
+            {
+              params: {
+                username: selectTweeter,
+              },
+            }
+          );
+
+          if (response.data.length > 0) {
+            const randomIndex = Math.floor(Math.random() * Math.min(10, response.data.length));
+            setRandomTweet(response.data[randomIndex]);
+          } else {
+            setRandomTweet(null);
+          }
+        } catch (error) {
+          console.error("Failed to fetch tweets", error);
+          setRandomTweet(null);
+        }
+      }
+    };
+
+    getRandomTweet();
+  }, [selectTweeter]);
 
   return (
     <>
@@ -61,6 +90,42 @@ export default function Random() {
           />
           <span className="image-label">Jordan Peterson</span>
         </div>
+      </div>
+      <div className="tweet-cards">
+        {randomTweet && (
+          <div key={randomTweet.id} className="card mb-3">
+            <div className="card-header d-flex align-items-center">
+              {randomTweet.profile_image_url && (
+                <img
+                  src={randomTweet.profile_image_url}
+                  alt="Profile"
+                  className="profile-image img-fluid rounded-circle me-2"
+                  style={{ maxWidth: "40px" }}
+                />
+              )}
+              <h4 className="mb-0">{randomTweet.username}</h4>
+            </div>
+            <div className="card-body">
+              <p>{randomTweet.text}</p>
+            </div>
+            <div className="card-footer d-flex justify-content-between">
+              <div>
+                <img
+                  src="/images/like_icon.png"
+                  alt="Like Icon"
+                  className="icon-img"
+                />
+                <span className="me-2">{randomTweet.like_count}</span>
+                <img
+                  src="/images/retweet_icon.png"
+                  alt="Retweet Icon"
+                  className="icon-img"
+                />
+                <span>{randomTweet.retweet_count}</span>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );
