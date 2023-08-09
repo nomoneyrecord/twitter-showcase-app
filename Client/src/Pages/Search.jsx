@@ -1,5 +1,5 @@
-import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState, useEffect, useRef } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import "./Search.css";
 
@@ -25,7 +25,6 @@ export default function Search() {
       });
 
       if (response.data.length === 0) {
-        // If the response data is an empty array, it means no tweets were found for the given username
         setTweets([]);
         setSearched(true);
       } else {
@@ -70,7 +69,7 @@ export default function Search() {
           </button>
         </form>
       </div>
-      {searched === true && tweets.length > 0 ? (
+      {searched === true && tweets.length > 0 && (
         <div className="tweet-cards">
           {tweets.map((tweet) => (
             <div key={tweet.id} className="card mb-3">
@@ -87,6 +86,11 @@ export default function Search() {
               </div>
               <div className="card-body">
                 <p>{tweet.text}</p>
+                
+                {/* Render attached media */}
+                {tweet.media_urls && tweet.media_urls.map((url, index) => (
+                  <img key={index} src={url} alt="Tweet Media" className="tweet-media img-fluid rounded mt-2" />
+                ))}
               </div>
               <div className="card-footer d-flex justify-content-between">
                 <div>
@@ -107,13 +111,7 @@ export default function Search() {
             </div>
           ))}
         </div>
-      ) : searched === true ? (
-        <div className="no-tweets-container">
-          <div className="no-tweets-message">
-            Please use a valid username
-          </div>
-        </div>
-      ) : null}
+      )}
     </>
   );
 }

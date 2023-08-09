@@ -18,7 +18,6 @@
   display: flex;
   flex-direction: column;
   align-items: center; /* Center the tweet cards horizontally */
-  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
   background-color: #242424;
@@ -83,4 +82,9 @@
   border-radius: 5px;
   background-color: #c9f5ff;
   color: rgb(171, 1, 1)
+}
+
+.tweet-media {
+  max-width: 100%;
+  margin-top: 10px;
 }
