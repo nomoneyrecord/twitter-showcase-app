@@ -47,7 +47,7 @@ def get_tweets():
 
                     # Extracting media URLs if they exist
                     media_keys = tweet.get('attachments', {}).get('media_keys', [])
-                    media_urls = [media['url'] for media in tweet_data.get('includes', {}).get('media', []) if media['media_key'] in media_keys]
+                    media_urls = [media['url'] for media in tweet_data.get('includes', {}).get('media', []) if 'url' in media and media['media_key'] in media_keys]
 
                     tweet_info = {
                         "id": tweet['id'],

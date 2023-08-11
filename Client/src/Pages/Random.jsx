@@ -94,41 +94,45 @@ export default function Random() {
         </div>
       </div>
       <div className="tweet-cards">
-        {randomTweet && (
-          <div key={randomTweet.id} className="card mb-3">
-            <div className="card-header d-flex align-items-center">
-              {randomTweet.profile_image_url && (
-                <img
-                  src={randomTweet.profile_image_url}
-                  alt="Profile"
-                  className="profile-image img-fluid rounded-circle me-2"
-                  style={{ maxWidth: "40px" }}
-                />
-              )}
-              <h4 className="mb-0">{randomTweet.username}</h4>
-            </div>
-            <div className="card-body">
-              <p>{randomTweet.text}</p>
-            </div>
-            <div className="card-footer d-flex justify-content-between">
-              <div>
-                <img
-                  src="/images/like_icon.png"
-                  alt="Like Icon"
-                  className="icon-img"
-                />
-                <span className="me-2">{randomTweet.like_count}</span>
-                <img
-                  src="/images/retweet_icon.png"
-                  alt="Retweet Icon"
-                  className="icon-img"
-                />
-                <span>{randomTweet.retweet_count}</span>
-              </div>
-            </div>
-          </div>
+  {randomTweet && (
+    <div key={randomTweet.id} className="card mb-3">
+      <div className="card-header d-flex align-items-center">
+        {randomTweet.profile_image_url && (
+          <img
+            src={randomTweet.profile_image_url}
+            alt="Profile"
+            className="profile-image img-fluid rounded-circle me-2"
+            style={{ maxWidth: "40px" }}
+          />
         )}
+        <h4 className="mb-0">{randomTweet.username}</h4>
       </div>
+      <div className="card-body">
+        <p>{randomTweet.text}</p>
+
+        {randomTweet.media_urls && randomTweet.media_urls.map((url, index) => (
+          <img key={index} src={url} alt="Tweet Media" className="tweet-media img-fluid rounded mt-2" />
+        ))}
+      </div>
+      <div className="card-footer d-flex justify-content-between">
+        <div>
+          <img
+            src="/images/like_icon.png"
+            alt="Like Icon"
+            className="icon-img"
+          />
+          <span className="me-2">{randomTweet.like_count}</span>
+          <img
+            src="/images/retweet_icon.png"
+            alt="Retweet Icon"
+            className="icon-img"
+          />
+          <span>{randomTweet.retweet_count}</span>
+        </div>
+      </div>
+    </div>
+  )}
+</div>
     </>
   );
 }
