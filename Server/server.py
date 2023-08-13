@@ -45,7 +45,6 @@ def get_tweets():
 
                     user_info = next((user for user in tweet_data.get('includes', {}).get('users', []) if user['id'] == author_id), None)
 
-                    # Extracting media URLs if they exist
                     media_keys = tweet.get('attachments', {}).get('media_keys', [])
                     media_urls = [media['url'] for media in tweet_data.get('includes', {}).get('media', []) if 'url' in media and media['media_key'] in media_keys]
 
