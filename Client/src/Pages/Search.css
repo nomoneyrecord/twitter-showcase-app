@@ -17,7 +17,7 @@
 .tweet-cards {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center the tweet cards horizontally */
+  align-items: center;
   margin: 0 auto;
   padding: 20px;
   background-color: #242424;
@@ -33,7 +33,7 @@
   border: 5px solid rgb(63, 68, 105);
   border-radius: 5px;
   background-color: #c9f5ff;
-  margin-left: auto; /* Move the tweet card to the right side of the container */
+  margin-left: auto; 
   margin-right: auto;
 }
 

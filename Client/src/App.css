@@ -429,6 +429,22 @@ a.nav-link {
   opacity: 1;
 }
 
+
+.image-container-huberman {
+  width: 140px;
+}
+
+.image-container-lei {
+  width: 140px;
+}
+
+.image-container-musk {
+  width: 140px;
+}
 .image-container-guido {
+  width: 140px;
+}
+
+.image-container-peterson{
   width: 140px;
 }

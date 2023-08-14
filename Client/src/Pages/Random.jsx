@@ -46,30 +46,36 @@ export default function Random() {
       </div>
       <div className="container-tweeters">
         <div className="image-container">
+          <div className="image-container-huberman">
           <img
             src="./images/Andrew-Huberman.jpeg"
             alt="Picture of Andrew Huberman"
             onClick={() => handleImageClick("hubermanlab")}
             style={{ height: "110px" }}
           />
+          </div>
           <span className="image-label">Andrew Huberman</span>
         </div>
         <div className="image-container">
+          <div className="image-container-lei">
           <img
             src="./images/Feifei-Li.jpeg"
             alt="Picture of Fei Fei Li"
             onClick={() => handleImageClick("drfeifei")}
             style={{ height: "110px" }}
           />
+          </div>
           <span className="image-label">Fei Fei Li</span>
         </div>
         <div className="image-container">
+          <div className="image-container-musk">
           <img
             src="./images/Elon-Musk.jpeg"
             alt="Picture of Elon Musk"
             onClick={() => handleImageClick("elonmusk")}
             style={{ height: "110px" }}
           />
+          </div>
           <span className="image-label">Elon Musk</span>
         </div>
         <div className="image-container">
@@ -84,12 +90,14 @@ export default function Random() {
         </div>
         </div>
         <div className="image-container">
+          <div className="image-container-peterson">
           <img
             src="./images/Jordan-Peterson.jpeg"
             alt="Picture of Jordan Peterson"
             onClick={() => handleImageClick("jordanbpeterson")}
             style={{ height: "110px" }}
           />
+          </div>
           <span className="image-label">Jordan Peterson</span>
         </div>
       </div>
