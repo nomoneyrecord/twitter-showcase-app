@@ -400,11 +400,11 @@ a.nav-link {
   font-size: 20px;
   position: absolute;
   overflow: hidden;
-  top: 50%;
+  top: calc(100%); /* Adjust the spacing as needed */
   left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
+  transform: translateX(-50%);
 }
+
 
 
 
