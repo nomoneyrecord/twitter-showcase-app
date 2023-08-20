@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import requests
 import os
 from dotenv import load_dotenv
-
+ 
 app = Flask(__name__)
 load_dotenv()
 
@@ -69,4 +69,4 @@ def get_tweets():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port=5001)
