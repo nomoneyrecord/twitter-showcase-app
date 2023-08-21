@@ -3,7 +3,8 @@ import requests
 import os
 from dotenv import load_dotenv
 
-app = Flask(__name__, static_folder='dist')  # Assuming 'dist' is the directory with your frontend assets
+app = Flask(__name__, static_folder='dist')  
+
 load_dotenv()
 
 @app.route('/', defaults={'path': ''})
