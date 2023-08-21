@@ -25,7 +25,7 @@ export default function Search() {
       });
 
       if (response.data.length === 0) {
-        // If the response data is an empty array, it means no tweets were found for the given username
+       
         setTweets([]);
         setSearched(true);
       } else {
@@ -88,7 +88,7 @@ export default function Search() {
         <div className="card-body">
           <p>{tweet.text}</p>
 
-          {/* Render attached media */}
+          
           {tweet.media_urls && tweet.media_urls.map((url, index) => (
             <img key={index} src={url} alt="Tweet Media" className="tweet-media img-fluid rounded mt-2" />
           ))}
