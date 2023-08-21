@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "npx vite",
-    "build": "npx vite build",
+    "dev": "vite",
+    "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "npx vite preview"
-},
+    "preview": "vite preview"
+  },
   "dependencies": {
     "axios": "^1.4.0",
     "bootstrap": "^5.3.0",
