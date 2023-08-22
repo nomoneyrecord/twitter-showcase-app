@@ -3,7 +3,8 @@ import requests
 import os
 from dotenv import load_dotenv
 
-app = Flask(__name__, static_folder='client/dist')
+app = Flask(__name__, static_folder=os.path.abspath('client/dist'))
+
 
 
 load_dotenv()
@@ -80,4 +81,4 @@ def get_tweets():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
