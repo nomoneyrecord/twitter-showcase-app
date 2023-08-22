@@ -3,7 +3,7 @@ import requests
 import os
 from dotenv import load_dotenv
 
-app = Flask(__name__, static_folder=os.path.abspath('client/dist'))
+app = Flask(__name__, static_folder=os.path.abspath('Client/dist'))
 
 
 
@@ -12,10 +12,10 @@ load_dotenv()
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def serve(path):
-    if path != "" and os.path.exists("client/dist/" + path):
-        return send_from_directory('client/dist', path)
+    if path != "" and os.path.exists("Client/dist/" + path):
+        return send_from_directory('Client/dist', path)
     else:
-        return send_from_directory('client/dist', 'index.html')
+        return send_from_directory('Client/dist', 'index.html')
 
 
 @app.route("/api/tweets")
