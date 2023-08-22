@@ -19,7 +19,9 @@ def serve(path):
     if path != "" and os.path.exists(full_path):
         return send_from_directory('../Client/dist', path)
     else:
+        print(f"Falling back to index.html for path: {path}")
         return send_from_directory('../Client/dist', 'index.html')
+
 
 
 @app.route("/api/tweets")
