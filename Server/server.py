@@ -13,14 +13,25 @@ load_dotenv()
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def serve(path):
-    full_path = os.path.join("../Client/dist", path)
-    print(f"Attempting to serve: {full_path}")
-    
-    if path != "" and os.path.exists(full_path):
-        return send_from_directory('../Client/dist', path)
+    if path != "":
+        # Split the path to get the file extension
+        ext = path.split('.')[-1]
+
+        # List of recognized asset extensions
+        known_extensions = ["js", "css", "png", "jpg", "svg", "ico"]
+
+        if ext in known_extensions:
+            asset_path = os.path.join("Client/dist", path)
+            if os.path.exists(asset_path):
+                return send_from_directory('Client/dist', path)
+            else:
+                return "Not Found", 404  # Return a 404 for known asset types that don't exist
+        else:
+            # For non-asset paths, fallback to index.html
+            return send_from_directory('Client/dist', 'index.html')
     else:
-        print(f"Falling back to index.html for path: {path}")
-        return send_from_directory('../Client/dist', 'index.html')
+        return send_from_directory('Client/dist', 'index.html')
+
 
 
 
