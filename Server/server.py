@@ -13,26 +13,22 @@ load_dotenv()
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def serve(path):
-    base_directory = os.path.abspath(os.path.join(os.getcwd(), '..'))
-    file_path = os.path.join(base_directory, "Client/dist", path)
+    dist_path = os.path.join(os.getcwd(), "Client", "dist")
     
-    # Print files in the assets directory for debugging
-    assets_directory = os.path.join(base_directory, 'Client/dist/assets')
-    if os.path.exists(assets_directory):
-        print(f"Files in assets directory: {os.listdir(assets_directory)}")
-    else:
-        print("Assets directory not found!")
-    
-    print(f"Attempting to serve: {file_path}")
-    
-    if path == '':
-        return send_from_directory(os.path.join(base_directory, 'Client/dist'), 'index.html')
-    elif os.path.exists(file_path):
-        print(f"Serving file: {file_path}")
-        return send_from_directory(os.path.join(base_directory, 'Client/dist'), path)
-    else:
-        print(f"Falling back to index.html for path: {path}")
-        return send_from_directory(os.path.join(base_directory, 'Client/dist'), 'index.html')
+    # If path is empty, serve the index.html file
+    if not path:
+        return send_from_directory(dist_path, 'index.html')
+
+    # Construct the absolute path to the requested file
+    abs_path = os.path.join(dist_path, path)
+
+    # If the requested file exists, serve it
+    if os.path.exists(abs_path):
+        return send_from_directory(dist_path, path)
+
+    # For any other path, serve the index.html file (SPA routing)
+    return send_from_directory(dist_path, 'index.html')
+
 
 
 
