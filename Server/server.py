@@ -15,18 +15,18 @@ load_dotenv()
 def serve(path):
     dist_path = os.path.join(os.getcwd(), "Client", "dist")
     
-    # If path is empty, serve the index.html file
+  
     if not path:
         return send_from_directory(dist_path, 'index.html')
 
-    # Construct the absolute path to the requested file
+
     abs_path = os.path.join(dist_path, path)
 
-    # If the requested file exists, serve it
+   
     if os.path.exists(abs_path):
         return send_from_directory(dist_path, path)
 
-    # For any other path, serve the index.html file (SPA routing)
+
     return send_from_directory(dist_path, 'index.html')
 
 
