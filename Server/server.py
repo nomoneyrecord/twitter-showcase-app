@@ -10,17 +10,23 @@ app = Flask(__name__, static_folder='../Client/dist')
 
 load_dotenv()
 
+
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def serve(path):
-    full_path = os.path.join("../Client/dist", path)
-    print(f"Attempting to serve: {full_path}")
+    base_directory = os.path.abspath(os.getcwd())
+    file_path = os.path.join(base_directory, "Client/dist", path)
     
-    if path != "" and os.path.exists(full_path):
-        return send_from_directory('../Client/dist', path)
-    else:
-        print(f"Falling back to index.html for path: {path}")
-        return send_from_directory('../Client/dist', 'index.html')
+    print(f"Attempting to serve: {file_path}")
+    
+    if os.path.exists(file_path):
+        print(f"Serving file: {file_path}")
+        return send_from_directory(os.path.join(base_directory, 'Client/dist'), path)
+    
+    print(f"Falling back to index.html for path: {path}")
+    return send_from_directory(os.path.join(base_directory, 'Client/dist'), 'index.html')
+
+
 
 
 
