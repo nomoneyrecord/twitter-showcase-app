@@ -38,7 +38,7 @@ def serve(path):
 def get_tweets():
     username = request.args.get('username')
     if not username:
-        return jsonify([])
+        return jsonify({"error": "Username is empty"}), 500
 
     try:
         bearer_token = os.environ.get("TWITTER_BEARER_TOKEN")
@@ -50,8 +50,9 @@ def get_tweets():
         }
 
         user_lookup_response = requests.get(user_lookup_url, headers=headers)
+        print(user_lookup_response)
         user_lookup_data = user_lookup_response.json()
-
+        print(user_lookup_data)
         if 'data' in user_lookup_data:
             user_id = user_lookup_data['data']['id']
 
@@ -90,7 +91,7 @@ def get_tweets():
 
                 return jsonify(result), 200
 
-        return jsonify([]), 200
+        return jsonify({"error": "Couldn't find user"}), 500
 
     except Exception as e:
         print(f"An error occurred: {str(e)}")
