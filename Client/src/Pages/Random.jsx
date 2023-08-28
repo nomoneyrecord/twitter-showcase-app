@@ -15,7 +15,7 @@ export default function Random() {
       if (selectTweeter) {
         try {
           const response = await axios.get(
-            `http://localhost:5173/api/tweets`,
+            `/api/tweets`,
             {
               params: {
                 username: selectTweeter,
