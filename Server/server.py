@@ -50,7 +50,7 @@ def get_tweets():
         }
 
         user_lookup_response = requests.get(user_lookup_url, headers=headers)
-        print(user_lookup_response)
+        print(user_lookup_response) 
         user_lookup_data = user_lookup_response.json()
         print(user_lookup_data)
         if 'data' in user_lookup_data:
