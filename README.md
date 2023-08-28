@@ -10,7 +10,7 @@ Try it [here](https://twitter-showcase-2prb.onrender.com)
 
 <br>
 
-![Image](./Client/dist/images/readme-image.png)
+![Image](/Client/dist/images/readme-image.png)
 
 ## Summary
 
