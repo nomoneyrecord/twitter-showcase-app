@@ -18,5 +18,5 @@ This app was designed to level up my experience and knowledge of building full s
 
 ## Author
 
-- Gary Hughes Jr - _Full-Stack Software Developer_ - [Website](https://garyleehughesjr.com) | [LinkedIn](https://www.linkedin.com/in/gary-hughes-jr-64925b229/)
+- Gary Hughes Jr - _Full-Stack Software Developer_ - [Website](https://garyhughesjr.netlify.app/) | [LinkedIn](https://www.linkedin.com/in/gary-hughes-jr-64925b229/)
 
