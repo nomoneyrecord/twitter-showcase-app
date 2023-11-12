@@ -18,14 +18,18 @@ This app was designed to level up my experience and knowledge of building full s
 
 ## Installation Guide
 ### Client
-1. run 'cd Client'
-2. run 'npm install'
-3. run 'npm run build'
+1. run `cd Client`
+2. run `npm install`
+3. run `npm run build`
 
 ### Server
 1. Open a separate terminal
-2. run 'cd server'
-3. 
+2. run `cd server`
+3. run `py -m venv. venv`
+4. run `.venv\Scripts\Activate.ps1`
+5. run `pip install -r requirements.txt`
+6. create .env file and include __TOKEN__-XXX
+7. run `flask --app server --debug run`
 
 ## Author
 
